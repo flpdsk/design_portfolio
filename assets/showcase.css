@@ -1,0 +1,204 @@
+/* Главная: компактная вводная часть и проекты по высоте окна. */
+html.home-page { scroll-snap-type: none; scroll-behavior: auto; scroll-padding-top: 0; }
+.home-page .hero {
+  padding-bottom: 32px;
+}
+.project-showcase {
+  height: 100svh;
+  min-height: 440px;
+  padding-block: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  border-top: 1px solid var(--line);
+}
+.project-heading { display: flex; align-items: baseline; gap: 18px; min-width: 0; }
+.showcase-header { flex-shrink: 0; }
+.showcase-description { max-width: 100ch; margin-top: 10px; color: #b6b8b9; font-size: 15px; line-height: 1.5; }
+.project-heading h1, .project-heading h2 {
+  font-size: clamp(24px, 2.8vw, 42px);
+  line-height: 1.2;
+  font-weight: 400;
+  letter-spacing: -.02em;
+}
+.project-heading-divider, .project-year { color: var(--muted); font-size: 18px; flex-shrink: 0; }
+.carousel-viewport {
+  position: relative;
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  min-width: 0;
+  gap: 24px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+}
+.carousel-viewport::-webkit-scrollbar { display: none; }
+.carousel-viewport:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; }
+.carousel-panel {
+  flex: 0 0 100%;
+  min-width: 0;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: minmax(0, 1fr) auto;
+  column-gap: 28px;
+  row-gap: 0;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+}
+.carousel-panel-single { grid-template-columns: minmax(0, 1fr); }
+.carousel-panel .work {
+  grid-column: auto;
+  grid-row: 1 / 3;
+  display: grid;
+  grid-template-rows: subgrid;
+  min-height: 0;
+}
+.carousel-panel .work-views {
+  flex: 1;
+  min-height: 0;
+  aspect-ratio: auto;
+  grid-auto-rows: minmax(0, 1fr);
+}
+.carousel-panel .views-mosaic { grid-template-rows: repeat(2, minmax(0, 1fr)); }
+.views-stack { display: grid; grid-template-columns: minmax(0, 1fr); gap: 12px; }
+.carousel-panel .views-stack { grid-template-rows: repeat(2, minmax(0, 1fr)); }
+.project-showcase .carousel-panel .work-image {
+  height: 100%;
+  min-height: 0;
+  aspect-ratio: auto;
+}
+.project-showcase .carousel-panel .work-portrait .work-image { padding: clamp(12px, 2vw, 28px); }
+.work-square .work-image { aspect-ratio: 1; }
+.work-square .work-image img { object-fit: contain; }
+.carousel-panel .work-square .work-views { container-type: size; display: grid; place-items: center; }
+.project-showcase .carousel-panel .work-square .work-image {
+  width: min(100cqw, 100cqh);
+  height: min(100cqw, 100cqh);
+  aspect-ratio: 1;
+}
+/* Убираем поля только в превью, полный исходник доступен по нажатию. */
+.work-image-cropped { container-type: size; display: grid; place-items: center; background: transparent; }
+.work-image-cropped .work-image-motion {
+  position: relative;
+  overflow: hidden;
+  width: min(100cqw, calc(100cqh * var(--preview-ratio)));
+  height: min(100cqh, calc(100cqw / var(--preview-ratio)));
+}
+.work-image-cropped img { position: absolute; top: 50%; width: 100%; height: auto; transform: translateY(-50%); }
+.carousel-panel .work figcaption { flex-shrink: 0; padding-top: 14px; }
+.work-title { font-size: 19px; font-weight: 400; line-height: 1.35; letter-spacing: -.015em; }
+.work-summary { margin-top: 8px; font-size: 15px; line-height: 1.5; }
+.work-team {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: baseline;
+  gap: 10px;
+  margin: 12px 0 0;
+  padding-top: 10px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.work-team-label { color: var(--text); font-weight: 600; }
+.work-team dd { margin: 0; }
+.showcase-footer { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-shrink: 0; }
+.showcase-footer[hidden] { display: none; }
+.project-link, .back-link { color: var(--blue); font-size: 16px; line-height: 1.5; }
+.project-link:hover, .back-link:hover { text-decoration: underline; text-underline-offset: 4px; }
+.carousel-controls { display: flex; align-items: center; gap: 16px; }
+.carousel-controls[hidden] { display: none; }
+.carousel-controls button {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: transparent;
+  font-size: 20px;
+}
+.carousel-controls button:hover:enabled { color: var(--blue); border-color: var(--blue); }
+.carousel-controls button:disabled { opacity: .3; cursor: default; }
+.carousel-counter { min-width: 48px; text-align: center; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+/* Страница проекта: все работы и подписи без привязки прокрутки к экранам. */
+.project-page { padding-bottom: 80px; }
+.project-page-intro { margin-top: 36px; margin-bottom: 46px; }
+.project-page-intro .project-description { max-width: 760px; }
+.project-page-intro .project-context { max-width: 760px; }
+.project-page .work-title { font-size: 22px; }
+.project-page .work-summary { max-width: 720px; }
+.project-page [data-work="student-poster"] .work-image { aspect-ratio: 2 / 3; padding: clamp(16px, 2vw, 28px); }
+.project-page .views-stack .work-image { aspect-ratio: 4 / 3; }
+.project-page [data-work="student-table"] .views-stack { aspect-ratio: 2 / 3; grid-template-rows: repeat(2, minmax(0, 1fr)); }
+.project-page [data-work="student-table"] .views-stack .work-image { height: 100%; min-height: 0; aspect-ratio: auto; }
+.project-page-footer { border-top: 1px solid var(--line); margin-top: 64px; padding-top: 24px; }
+.project-grid-single { grid-template-columns: minmax(0, 1fr); }
+.project-grid-single > .work { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px; align-items: start; }
+.project-grid-single > .work figcaption { padding-top: 0; }
+
+/* У изображения и его полного описания отдельные области в одном окне. */
+dialog[open] { display: flex; flex-direction: column; gap: 18px; }
+.viewer-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 360px); flex: 1; min-height: 0; gap: 28px; }
+.viewer-stage { height: 100%; min-height: 0; gap: 12px; }
+.viewer-details { min-width: 0; min-height: 0; overflow-y: auto; padding-right: 14px; padding-bottom: 12px; scrollbar-width: thin; }
+.viewer-details .work-title { font-size: 24px; }
+.viewer-details .work-details > div { grid-template-columns: 1fr; gap: 4px; }
+.viewer-details .work-details { gap: 18px; }
+.viewer-hint { padding: 0; gap: 20px; flex-shrink: 0; }
+.viewer-stage button[hidden] { display: none; }
+.viewer-stage button:disabled { opacity: .3; cursor: default; }
+.viewer-stage-single { grid-template-columns: minmax(0, 1fr); }
+
+/* Без JavaScript — обычная сетка с рабочими ссылками на изображения. */
+.project-showcase:not(.carousel-ready) { height: auto; min-height: 0; }
+.project-showcase:not(.carousel-ready) .carousel-viewport {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 36px 28px;
+  overflow: visible;
+}
+
+@media (max-width: 900px) {
+  .viewer-layout { grid-template-columns: minmax(0, 1fr); grid-template-rows: minmax(0, 1fr) minmax(0, .8fr); gap: 20px; }
+  .viewer-details { border-top: 1px solid var(--line); padding-top: 16px; }
+}
+@media (orientation: portrait) {
+  .project-showcase { height: calc(100svh - 88px); }
+}
+@media (max-width: 600px) {
+  .home-page .hero { padding-bottom: 24px; }
+  .project-showcase { padding-block: 16px; gap: 16px; }
+  .project-heading { gap: 12px; }
+  .project-heading h1, .project-heading h2 { font-size: 24px; }
+  .project-heading-divider, .project-year { font-size: 15px; }
+  .showcase-description { margin-top: 8px; font-size: 14px; }
+  .carousel-panel { column-gap: 16px; }
+  .views-stack { gap: 8px; }
+  .work-title { font-size: 18px; }
+  .work-summary { font-size: 14px; }
+  .work-team { font-size: 12px; }
+  .carousel-panel .work figcaption { padding-top: 12px; }
+  .showcase-footer { gap: 12px; }
+  .project-link, .back-link { font-size: 14px; }
+  .carousel-controls { gap: 8px; }
+  .carousel-controls button { width: 34px; height: 34px; }
+  .carousel-counter { min-width: 36px; font-size: 12px; }
+  .project-page { padding-bottom: 48px; }
+  .project-page-intro { margin-top: 28px; margin-bottom: 32px; }
+  .project-page .work-title { font-size: 20px; }
+  .project-grid-single > .work { display: block; }
+  .project-grid-single > .work figcaption { padding-top: 18px; }
+  .viewer-toolbar { gap: 12px; }
+  .viewer-details .work-title { font-size: 21px; }
+  .project-showcase:not(.carousel-ready) .carousel-viewport { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* Длинные подписи и небольшая высота окна не должны вытеснять изображения. */
+@media (max-height: 700px) {
+  .project-showcase.carousel-ready { height: auto; min-height: 440px; }
+  .carousel-ready .carousel-viewport { flex: none; height: 520px; }
+}
