@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#17191b">
+  <meta name="description" content="Привет, я Владислав. Занимаюсь графическим дизайном. Здесь собрал афиши, печатные материалы и оформление событий и рассказываю о своей работе над ними.">
+  <title>Владислав Хлебников — графический дизайн</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/styles.css">
+  <script src="assets/content.js" defer></script>
+  <script src="assets/main.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#projects">Перейти к проектам</a>
+  <header class="header wrap">
+    <a class="identity" href="#" aria-label="Владислав Хлебников — на главную"><img class="identity-avatar" src="assets/avatar.webp" width="64" height="64" alt="" decoding="async"><span>Владислав<br>Хлебников</span></a>
+    <nav aria-label="Основная навигация"><a href="#projects">Проекты <span class="nav-count">03</span></a><a href="#approach">Обо мне</a><a href="#contact">Связаться <span aria-hidden="true">↗</span></a></nav>
+  </header>
+  <main>
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-top"><p class="eyebrow"><span class="blue-dot"></span> Графический дизайн / Брендинг</p><span class="hero-index">Избранные работы</span></div>
+      <h1 id="hero-title">Привет,<br>я Владислав.</h1>
+      <div class="hero-bottom"><p>Занимаюсь графическим дизайном. Здесь собрал работы для студенческих проектов: афиши, печатные материалы и оформление событий.</p><a class="round-link" href="#projects"><span>Смотреть работы</span><span class="circle" aria-hidden="true">↓</span></a></div>
+      <div class="project-index" aria-label="Проекты портфолио"><a href="#student"><span>01</span> Студент года 2023 <span aria-hidden="true">↘</span></a><a href="#sopka"><span>02</span> СОПК <span aria-hidden="true">↘</span></a><a href="#perspective"><span>03</span> Перспектива <span aria-hidden="true">↘</span></a></div>
+    </section>
+    <section id="projects" class="projects wrap" aria-labelledby="projects-title">
+      <div class="section-label"><h2 id="projects-title">Избранные проекты</h2><span>01 — 03</span></div>
+      <div id="project-list"></div>
+      <noscript><p>Чтобы посмотреть галерею, включите JavaScript. А пока можно открыть <a href="assets/images/student-white-folders.webp">папки для жюри</a> отдельным изображением.</p></noscript>
+    </section>
+    <section id="approach" class="about wrap" aria-labelledby="about-title"><p class="eyebrow">Обо мне</p><div><h2 id="about-title">Как я работал<br>над этими проектами.</h2><p>Эти работы я делал в дизайн-команде студсовета Бауманки. Придумывал оформление, переносил идеи в разные форматы, верстал печатные материалы и делал мокапы, чтобы показать, как всё будет выглядеть.</p><p class="muted">В процессе учитывал брендбук университета, требования типографии и пожелания организаторов. Под каждой работой рассказываю, что сделал сам, с кем работал и что в итоге напечатали.</p></div></section>
+    <section id="contact" class="contact wrap" aria-labelledby="contact-title"><p class="eyebrow"><span class="blue-dot"></span> Связаться</p><h2 id="contact-title">Будем<br>на связи<span class="accent">.</span></h2><div class="contact-bottom"><p>Хлебников Владислав<br><span class="muted">Графический дизайн и брендинг</span></p><div class="contact-links"><a href="https://t.me/flpdsk" target="_blank" rel="noopener noreferrer">Telegram · @flpdsk <span aria-hidden="true">↗</span></a><a href="tel:+79020477150">+7 (902) 047-71-50 <span aria-hidden="true">↗</span></a></div></div></section>
+  </main>
+  <footer class="footer wrap"><span>© <span id="year">2026</span> Владислав Хлебников</span><a href="#">Наверх ↑</a></footer>
+  <dialog id="viewer" aria-labelledby="viewer-caption"><div class="viewer-toolbar"><p id="viewer-caption"></p><button id="viewer-close" type="button" aria-label="Закрыть изображение">Закрыть <span aria-hidden="true">×</span></button></div><div class="viewer-stage"><button id="viewer-prev" type="button" aria-label="Предыдущее изображение">←</button><img id="viewer-image" alt=""><button id="viewer-next" type="button" aria-label="Следующее изображение">→</button></div><p class="viewer-hint">← → Перелистывать <span>Esc Закрыть</span></p></dialog>
+</body>
+</html>
